@@ -1,22 +1,37 @@
 set nocompatible
 filetype off
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-Bundle 'gmarik/vundle'
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-Bundle 'rking/ag.vim'
-Bundle 'nakatakeshi/jump2pm.vim'
-Bundle 'vim-scripts/yanktmp.vim'
-Bundle 'tomtom/tcomment_vim'
-Bundle 'kien/ctrlp.vim'
-Bundle 'ZenCoding.vim'
-Bundle 'Shougo/unite.vim'
-Bundle 'Shougo/neocomplcache'
-Bundle 'tomtom/tcomment_vim'
-Bundle 'vim-scripts/Align'
-Bundle 'thinca/vim-quickrun'
-Bundle 'scrooloose/syntastic'
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+" The following are examples of different formats supported.
+" Keep Plugin commands between vundle#begin/end.
+" plugin on GitHub repo
+Plugin 'tpope/vim-fugitive'
+" plugin from http://vim-scripts.org/vim/scripts.html
+Plugin 'L9'
+" Git plugin not hosted on GitHub
+Plugin 'git://git.wincent.com/command-t.git'
+" The sparkup vim script is in a subdirectory of this repo called vim.
+" Pass the path to set the runtimepath properly.
+Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+
+Plugin 'nakatakeshi/jump2pm.vim'
+Plugin 'vim-scripts/yanktmp.vim'
+Plugin 'kien/ctrlp.vim'
+Plugin 'ZenCoding.vim'
+Plugin 'Shougo/unite.vim'
+Plugin 'Shougo/neocomplcache'
+Plugin 'tomtom/tcomment_vim'
+Plugin 'vim-scripts/Align'
+Plugin 'thinca/vim-quickrun'
+Plugin 'scrooloose/syntastic'
+
+call vundle#end()
+filetype plugin indent on
 
 set autoindent
 set tabstop=4
