@@ -25,6 +25,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'ZenCoding.vim'
 Plugin 'Shougo/unite.vim'
 Plugin 'Shougo/neocomplcache'
+Plugin 'Shougo/neomru.vim'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'vim-scripts/Align'
 Plugin 'thinca/vim-quickrun'
@@ -33,6 +34,7 @@ Plugin 'scrooloose/syntastic'
 call vundle#end()
 filetype plugin indent on
 
+set clipboard+=unnamed
 set autoindent
 set tabstop=4
 set shiftwidth=4
