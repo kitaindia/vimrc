@@ -1,49 +1,64 @@
-set nocompatible
-filetype off
+set nocompatible              " be iMproved, required
+filetype off                  " required
 
+colorscheme molokai
+syntax on
+
+" set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
-Plugin 'tpope/vim-fugitive'
-" plugin from http://vim-scripts.org/vim/scripts.html
-Plugin 'L9'
-" Git plugin not hosted on GitHub
-Plugin 'git://git.wincent.com/command-t.git'
-" The sparkup vim script is in a subdirectory of this repo called vim.
-" Pass the path to set the runtimepath properly.
-Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-
-Plugin 'nakatakeshi/jump2pm.vim'
-Plugin 'vim-scripts/yanktmp.vim'
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'davidhalter/jedi-vim'
 Plugin 'kien/ctrlp.vim'
-Plugin 'ZenCoding.vim'
 Plugin 'Shougo/unite.vim'
 Plugin 'Shougo/neocomplcache'
 Plugin 'Shougo/neomru.vim'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'vim-scripts/Align'
-Plugin 'thinca/vim-quickrun'
-Plugin 'scrooloose/syntastic'
+" The following are examples of different formats supported.
+" Keep Plugin commands between vundle#begin/end.
+" plugin on GitHub repo
 
+" plugin from http://vim-scripts.org/vim/scripts.html
+" Plugin 'L9'
+" Git plugin not hosted on GitHub
+" Plugin 'git://git.wincent.com/command-t.git'
+" git repos on your local machine (i.e. when working on your own plugin)
+" Plugin 'file:///home/gmarik/path/to/plugin'
+" The sparkup vim script is in a subdirectory of this repo called vim.
+" Pass the path to set the runtimepath properly.
+" Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+" Avoid a name conflict with L9
+" Plugin 'user/L9', {'name': 'newL9'}
+
+" All of your Plugins must be added before the following line
 call vundle#end()
 filetype plugin indent on
 
-set clipboard+=unnamed
 set autoindent
-set tabstop=4
-set shiftwidth=4
+set nosmartindent
 set expandtab
 
+autocmd FileType python set shiftwidth=4
+autocmd FileType python set tabstop=4
+autocmd FileType python set softtabstop=4
+
+autocmd FileType html set shiftwidth=2
+autocmd FileType html set tabstop=2
+autocmd FileType html set softtabstop=2
+
+
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set shiftround
 set encoding=utf-8
 set termencoding=utf-8
 set fileencoding=utf-8
-set fileencodings=euc-jp,utf-8,sjis
 
 set hidden
 
@@ -62,8 +77,12 @@ set list
 set listchars=tab:>-,trail:-,nbsp:%,extends:>,precedes:<
 set showcmd
 set laststatus=2
+
 set showmatch
-set matchtime=2
+set matchtime=3
+set matchpairs& matchpairs+=<:>
+
+
 syntax on
 set hlsearch
 set wildmenu
@@ -77,7 +96,9 @@ set fileformats=unix,dos,mac
 set vb t_vb=
 set backspace=indent,eol,start
 set t_Co=256
-colorscheme molokai
+
+set colorcolumn=80
+
 au BufReadPost,BufNewFile *.t :setl filetype=perl
 let g:colors_name="pyte"
 set term=xterm-256color
@@ -88,19 +109,6 @@ let b:match_words = '<:>,<div.*>:</div>'
 highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=darkgray
 match ZenkakuSpace /B!!/
 set statusline=%n\:%y%F\ \|%{(&fenc!=''?&fenc:&enc).'\|'.&ff.'\|'}%m%r%=
-
-" --------------------------------------
-  " " split window vertically and jump to pm fine.
-   noremap fg :call Jump2pm('vne')<ENTER>
-  " " jump to pm file in current window
-   noremap ff :call Jump2pm('e')<ENTER>
-  " " split window horizontal, and ...
-   noremap fd :call Jump2pm('sp')<ENTER>
-  " " open tab, and ...
-   noremap fd :call Jump2pm('tabe')<ENTER>
-  " " for visual mode, use Jump2pmV()
-   vnoremap fg :call Jump2pmV('vne')<ENTER>
-  " ---------------------------------------
 
 
 """ unite.vim
