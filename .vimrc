@@ -10,17 +10,19 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'tomtom/tcomment_vim'
 Plugin 'vim-scripts/Align'
-
+Plugin 'Shougo/neocomplete'
+Plugin 'Shougo/denite.nvim'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
+
+let g:python3_host_prog = expand('~/.pyenv/shims/python3')
 
 colorscheme molokai
 syntax on
 let g:molokai_original = 1
 let g:rehash256 = 1
 set background=dark
-
 set notitle
 set ruler
 set number
@@ -34,6 +36,7 @@ set ambiwidth=double
 set virtualedit=block
 set history=50
 set nobackup
+set noswapfile
 
 set smartindent
 set autoindent
@@ -43,6 +46,12 @@ set tabstop=2
 set shiftwidth=2
 set softtabstop=0
 set expandtab
+set backspace=indent,eol,start
+
+set clipboard=unnamed,autoselect
+
+set list
+set listchars=tab:>-,trail:.
 
 set incsearch
 set hlsearch
